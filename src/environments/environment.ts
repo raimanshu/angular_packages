@@ -7,7 +7,9 @@ export const environment = {
   
   stripeKey:"pk_test_51IHMvxJNEwTsKqttoIGfJxyfR4uhjUgufVrAYfbXUUzKGjnQQfeSsFqcEgJDgoqaIBWjKa1mGKDJbL6Ny4hEQDeg00XEYkUHEh",
 
-  paypal_client_id:'sb'
+  paypal_client_id:'AR3vznzzCMzpNrM-2e1gtVp3BSgk0vB_rubN8nJhR7_K_4D1jI1scRni07D3k0ATdOj85GAgNxVLeOO5',
+
+  google_map_key:'AIzaSyAvcDy5ZYc2ujCS6TTtI3RYX5QmuoV8Ffw',
 };
 
 /*

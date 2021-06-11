@@ -19,6 +19,7 @@ export class StripeJsNormalImpIndexComponent implements OnInit {
   private data: any;
   id: string;
   showSpinner = false;
+  tokenResponse: IStripeCustomResponse;
 
   constructor(
     private router: Router,
@@ -78,6 +79,7 @@ export class StripeJsNormalImpIndexComponent implements OnInit {
       // cardPayload = this.beforeAddUpdateHandler({ ...cardPayload });
       this.createNewCard(cardPayload);
       console.log(stripeToken);
+      this.tokenResponse = stripeToken;
     }
   }
 

@@ -1,89 +1,88 @@
 <div class="container-fluid">
-    <h2>Payment!</h2>
-    <div class="separator-breadcrumb border-top">
-    </div>
-
-    <div class="payment-form">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="payment-box">
-                    <div class="payment-heading">
-                        <span>
-                            <h3>Payment Methods</h3>
-                        </span>
+    <h4>Payment using js-stripe using custom form</h4>
+    <div class="row border border-secondary p-2">
+        <div class="col-6 border border-secondary p-2">
+            <form [formGroup]="paymentForm" (ngSubmit)="submit()">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="">Card Holders Name</label>
+                            <input type="text" formControlName="cardholderName"
+                                [ngClass]="{'is-invalid':sub && f.cardholderName.errors}" class="form-control">
+                            <div *ngIf="sub && f.cardholderName.errors" class="invalid-feedback">
+                                <div *ngIf="f.cardholderName.errors.required">
+                                    Card holder's name is required
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="payment-body">
-                        <form [formGroup]="paymentForm" (ngSubmit)="submit()">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="">Card Holders Name</label>
-                                        <input type="text" formControlName="cardholderName" [ngClass]="{'is-invalid':sub && f.cardholderName.errors}" class="form-control">
-                                        <div *ngIf="sub && f.cardholderName.errors" class="invalid-feedback">
-                                            <div *ngIf="f.cardholderName.errors.required">
-                                                Card holder's name is required
-                                            </div>
-                                        </div>
-                                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="">Card Number</label>
+                            <input type="number" class="form-control" formControlName="cardNumber"
+                                onKeyPress="if(this.value.length==16) return false;"
+                                [ngClass]="{'is-invalid':sub && f.cardNumber.errors}">
+                            <div *ngIf="sub && f.cardNumber.errors" class="invalid-feedback">
+                                <div *ngIf="f.cardNumber.errors.required">
+                                    Your Card is required!
                                 </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="">Card Number</label>
-                                        <input type="number" class="form-control" formControlName="cardNumber" onKeyPress="if(this.value.length==16) return false;" [ngClass]="{'is-invalid':sub && f.cardNumber.errors}">
-                                        <div *ngIf="sub && f.cardNumber.errors" class="invalid-feedback">
-                                            <div *ngIf="f.cardNumber.errors.required">
-                                                Your Card is required!
-                                            </div>
-                                            <div *ngIf="f.cardNumber.errors.invalidCreditCard">
-                                                Invalid card number
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="">Month</label>
-                                        <input type="text" class="form-control" formControlName="cardMonth" [ngClass]="{'is-invalid':sub && f.cardMonth.errors}">
-                                        <div *ngIf="sub && f.cardMonth.errors" class="invalid-feedback">
-                                            <div *ngIf="f.cardMonth.errors.required">
-                                                Your Card is required!
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="">Year</label>
-                                        <input type="text" class="form-control"  formControlName="cardYear" [ngClass]="{'is-invalid':sub && f.cardYear.errors}">
-                                        <div *ngIf="sub && f.cardYear.errors" class="invalid-feedback">
-                                            <div *ngIf="f.cardYear.errors.required">
-                                                Your Card is required!
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="">CVV</label>
-                                        <input type="password" class="form-control" formControlName="cvc" [ngClass]="{'is-invalid':sub && f.cvc.errors}">
-                                        <div *ngIf="sub && f.cvc.errors" class="invalid-feedback">
-                                            <div *ngIf="f.cvc.errors.required">
-                                                CVV is required
-                                            </div>
-                                            <div *ngIf="f.cvc.errors.invalidCVV">
-                                                Invalid CVV
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div *ngIf="f.cardNumber.errors.invalidCreditCard">
+                                    Invalid card number
                                 </div>
                             </div>
-                            <div class="button-payment mt-2">
-                                <button type="submit" class="btn px-4 btn-primary">Save</button>
-                                <button type="button" (click)="cancel()" class="btn px-4 ml-2 btn-primary">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="">Month</label>
+                            <input type="text" class="form-control" formControlName="cardMonth"
+                                [ngClass]="{'is-invalid':sub && f.cardMonth.errors}">
+                            <div *ngIf="sub && f.cardMonth.errors" class="invalid-feedback">
+                                <div *ngIf="f.cardMonth.errors.required">
+                                    Your Card is required!
+                                </div>
                             </div>
-                        </form>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="">Year</label>
+                            <input type="text" class="form-control" formControlName="cardYear"
+                                [ngClass]="{'is-invalid':sub && f.cardYear.errors}">
+                            <div *ngIf="sub && f.cardYear.errors" class="invalid-feedback">
+                                <div *ngIf="f.cardYear.errors.required">
+                                    Your Card is required!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="">CVV</label>
+                            <input type="password" class="form-control" formControlName="cvc"
+                                [ngClass]="{'is-invalid':sub && f.cvc.errors}">
+                            <div *ngIf="sub && f.cvc.errors" class="invalid-feedback">
+                                <div *ngIf="f.cvc.errors.required">
+                                    CVV is required
+                                </div>
+                                <div *ngIf="f.cvc.errors.invalidCVV">
+                                    Invalid CVV
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="button-payment mt-2">
+                    <button type="submit" class="btn px-4 btn-primary">Save</button>
+                    <button type="button" (click)="cancel()" class="btn px-4 ml-2 btn-primary">Cancel</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-6 border border-secondary p-2">
+            <div class="h-100">
+                <pre>
+                    {{tokenResponse | json}}
+                </pre>
             </div>
         </div>
     </div>

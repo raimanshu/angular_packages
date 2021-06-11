@@ -33,7 +33,7 @@ export class ScfIndexComponent implements OnInit {
       amount: amount * 100,
       // allowRememberMe: false
       // image: 'src/assets/bank.png'
-      address: 'House no 3234/71, Sector 71, Mohali, Punjab'
+      // address: 'House no 3234/71, Sector 71, Mohali, Punjab'
     });
  
   }

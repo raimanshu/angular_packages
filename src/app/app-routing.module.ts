@@ -9,6 +9,14 @@ const routes: Routes = [
     loadChildren: () => import('./stripe-js-normal-imp/stripe-js-normal-imp.module').then(m => m.StripeJsNormalImpModule)
   },
   {
+    path: 'google-adsense',
+    loadChildren: () => import('./google-adsense/google-adsense.module').then(m => m.GoogleAdsenseModule)
+  },
+  {
+    path: 'ng-select',
+    loadChildren: () => import('./ng-select-npm/ng-select-npm.module').then(m => m.NgSelectModule)
+  },
+  {
     path: 'ngx-paypal-package',
     loadChildren: () => import('./ngx-paypal-package/ngx-paypal-package.module').then(m => m.NgxPaypalPackageModule)
   },

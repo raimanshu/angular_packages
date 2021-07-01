@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IntroComponent } from './intro/intro.component';
 import { AgmCoreModule } from '@agm/core';
 import { environment } from 'src/environments/environment';
-import { ComponentsModule } from './shared/components/components.module';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -15,12 +15,12 @@ import { ComponentsModule } from './shared/components/components.module';
     IntroComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,  
     AppRoutingModule,
 
-    ComponentsModule,
     FormsModule,
     ReactiveFormsModule,
+    NgSelectModule,
     // AgmCoreModule.forRoot({
     //   apiKey: environment.google_map_key
     // })

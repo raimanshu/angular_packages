@@ -1,3 +1,5 @@
+Need to add google adsense and ng multiselect and slider
+
 # AngularPackages
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
